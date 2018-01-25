@@ -11,3 +11,21 @@ format &var._update datetime.;
 %mend datechange;
 
 %let path=/usr/sasmeta/Lev1/SASApp/DEPOSE_FIC_TEXTE/SHAREDATA/SIGNANDGO/output_sql_table_info;
+
+
+data _null_;
+		call symput("day",left(compress(put("&sysdate"d,yymmdd10.),"-"," ")));
+		call symput("lastmonth",substr(compress(put(intnx('month',today(),-1),yymmdd10.),"-" ),1,6));
+		call symput("last2months",substr(compress(put(intnx('month',today(),-2),yymmdd10.),"-" ),1,6));
+        call symput ("thismonthbegdate", compress(put(intnx('month',today(),-0,'b'),yymmdd10.),"-" ));       
+        call symput ("lastmonthenddate", compress(put(intnx('month',today(),-1,'e'),yymmdd10.),"-" ));
+		call symput ("lastmonthbegdate", compress(put(intnx('month',today(),-1,'b'),yymmdd10.),"-" ));
+		call symput("INITREFMONTH",substr(compress(put(intnx('month',today(),-4),yymmdd10.),"-" ),1,6));
+run;
+%put &day.;
+%put &lastmonth.;
+%put &last2months.;
+%put &thismonthbegdate.;
+%put &lastmonthenddate.;
+%put &lastmonthbegdate.;
+%put &INITREFMONTH.;
