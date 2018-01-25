@@ -29,3 +29,9 @@ run;
 %put &lastmonthenddate.;
 %put &lastmonthbegdate.;
 %put &INITREFMONTH.;
+
+
+
+/*SAS SYSTEM INFORMATION*/
+proc setinit;
+run;
