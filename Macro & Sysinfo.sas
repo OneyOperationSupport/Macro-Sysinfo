@@ -35,3 +35,19 @@ run;
 /*SAS SYSTEM INFORMATION*/
 proc setinit;
 run;
+
+
+DATA work.firstapprove&day.;set work.first_appro;
+run;
+
+
+DATA work.finalappro&day.;SET WORK.FINAL_APPRO;
+RUN;
+
+
+DATA work.dps_return_record&day.;SET WORK.dps_return_record;
+RUN;
+
+data work.account_info&day.; set work.dps_account_info&day.;
+run;
+
